@@ -54,5 +54,26 @@ function mergeSort(arr:number[]):number[]{
   return merge(mergeSort(left), mergeSort(right));
 }
 
+
+
+//bubble sort
+function bubbleSort(arr:number[]){
+  if(arr.length <= 1) return arr;
+  let swapped:boolean;
+  let lastSorted = arr.length;
+  do{
+    swapped = false;
+    for(let i = 0; i<lastSorted - 1; i++){
+      if(arr[i]>arr[i+1]){
+        let x = arr[i]
+        arr[i] = arr[i+1];
+        arr[i+1] = x;
+        swapped = true;
+      }
+    }
+  }while(swapped)
+}
+
 console.log(arr)
-console.log(mergeSort(arr));
+bubbleSort(arr)
+console.log(arr);
