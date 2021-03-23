@@ -1,11 +1,11 @@
-//insert sort
+//select sort
 
 let arr:number[] = new Array<number>(20);
 for(let i = 0; i<arr.length; i++){
   arr[i] = Math.floor(Math.random()*100)
 }
 
-function insertSort(arr:Array<number>):void{
+function selectSort(arr:Array<number>):void{
   if(arr.length<2){
     return;
   }
@@ -20,7 +20,7 @@ function insertSort(arr:Array<number>):void{
   }
 }
 // console.log(arr);
-// insertSort(arr);
+// selectSrt(arr);
 // console.log(arr);
 
 //merge sort
@@ -74,6 +74,29 @@ function bubbleSort(arr:number[]){
   }while(swapped)
 }
 
+//insert sort
+function insertionSort(arr:number[]){
+  if(arr.length < 2){
+    return;
+  }
+  for(let i=1; i<arr.length; i++){
+    let x = arr[i];
+    let swapped = false;
+    for(let j = i-1; j>=0; j--){
+      if(arr[j]>x){
+        arr[j+1] = arr[j]
+      } else{
+        arr[j+1] = x;
+        swapped = true;
+        break;
+      }
+    }
+    if(!swapped){
+      arr[0] = x;
+    }
+  }
+}
+
 console.log(arr)
-bubbleSort(arr)
+insertionSort(arr)
 console.log(arr);
