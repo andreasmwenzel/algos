@@ -1,7 +1,7 @@
-class BinaryTreeNode<T>{
+class TreeNode<T>{
   key:T;
-  left:BinaryTreeNode<T>;
-  right:BinaryTreeNode<T>;
+  left:TreeNode<T>;
+  right:TreeNode<T>;
 }
 
 class BinarySearchTree{
