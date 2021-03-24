@@ -97,6 +97,40 @@ function insertionSort(arr:number[]){
   }
 }
 
+
+
+//quicksort
+function quickSort(arr:number[]){
+   qSort(arr, 0, arr.length-1);   
+}
+function qSort(arr:number[], l:number, r:number){
+  if(l<r){
+    let q = partition(arr, l, r);
+    console.log(arr, l, q, r);
+    qSort(arr, l, q-1);
+    qSort(arr, q+1, r)
+  }
+}
+
+function partition(arr, l, r):number{
+  let pivot = arr[l]
+  let q = l;
+  for(let i = l+1; i<=r; i++){
+    if(arr[i]<=pivot){
+      q = q + 1;
+      console.log(`swap ${arr[i]} with ${arr[q]}`)
+      
+      const x:number = arr[i];
+      arr[i] = arr[q];
+      arr[q] = x;
+    }
+  }
+
+  arr[l] = arr[q]
+  arr[q] = pivot;
+  return q;
+}
+
 console.log(arr)
-insertionSort(arr)
+quickSort(arr)
 console.log(arr);
