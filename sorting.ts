@@ -128,6 +128,19 @@ function partition(arr, l, r):number{
   return q;
 }
 
+
+import {Heap} from "./structures"
+function heapSort(arr:number[]){
+  let heap = new Heap(arr);
+  for(let i = arr.length - 1; i>0; i--){
+    let x = heap.heapArray[0]
+    heap.heapArray[0] = heap.heapArray[heap.size - 1]
+    heap.heapArray[heap.size - 1] = x;
+    heap.size = heap.size - 1;
+    heap.maxHeapify(0);
+  }
+}
+
 console.log(arr)
-quickSort(arr)
+heapSort(arr)
 console.log(arr);

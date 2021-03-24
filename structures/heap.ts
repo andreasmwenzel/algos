@@ -1,5 +1,5 @@
-class Heap{
-    private size;
+export class Heap{
+    public size;
     public heapArray:number[];
     constructor(unheaped:number[]){
         this.size = unheaped.length;
@@ -17,7 +17,7 @@ class Heap{
     private parent(i){
         return Math.floor( ( i - 1) / 2);
     }
-    private maxHeapify(i:number){
+    public maxHeapify(i:number){
         let l = this.left(i);
         let r = this.right(i);
         
@@ -36,9 +36,3 @@ class Heap{
         }
     }
 }
-
-let array = [ 42, 33, 80, 84, 32, 24, 74, 52, 50, 38 ]
-
-console.log(array);
-let myHeap = new Heap(array);
-console.log(myHeap.heapArray);
