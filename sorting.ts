@@ -141,6 +141,35 @@ function heapSort(arr:number[]){
   }
 }
 
+
+import { Queue } from "./structures"
+
+function radixSort(arr:number[]){
+  let buckets = new Array<Queue<number>>(10);
+  
+  for(let i=0; i<10; i++){
+    buckets[i] = new Queue(arr.length+1);
+  }
+  let keepSorting:boolean = true;
+  let div = 1;
+  while(keepSorting){
+    for(let n of arr){
+      buckets[Math.floor(n/div) % 10].enqueue(n);
+    }
+    let i = 0;
+    for(let q of buckets){
+      if(q.isFull()){
+        keepSorting = false;
+      }
+      while(!q.isEmpty()){
+        arr[i] = q.dequeue();
+        i = i+1;
+      }
+    }
+    div = div*10;
+  }
+}
+
 console.log(arr)
-heapSort(arr)
+radixSort(arr)
 console.log(arr);
