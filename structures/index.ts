@@ -1,4 +1,5 @@
 export { Queue } from "./queue"
 export { Stack } from "./stack"
 export { Heap } from "./heap"
+export { BinarySearchTree } from "./trees"
 export {ListNode, LinkedList, DoublyLinkedNode, DoublyLinkedList} from "./linkedList"
